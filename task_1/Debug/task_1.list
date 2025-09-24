@@ -41,13 +41,13 @@ Idx Name          Size      VMA       LMA       File off  Algn
                   CONTENTS, READONLY, DEBUGGING, OCTETS
  18 .debug_line   00004273  00000000  00000000  0001223c  2**0
                   CONTENTS, READONLY, DEBUGGING, OCTETS
- 19 .debug_str    000342d8  00000000  00000000  000164af  2**0
+ 19 .debug_str    000342dc  00000000  00000000  000164af  2**0
                   CONTENTS, READONLY, DEBUGGING, OCTETS
- 20 .comment      00000043  00000000  00000000  0004a787  2**0
+ 20 .comment      00000043  00000000  00000000  0004a78b  2**0
                   CONTENTS, READONLY
- 21 .debug_frame  00000488  00000000  00000000  0004a7cc  2**2
+ 21 .debug_frame  00000488  00000000  00000000  0004a7d0  2**2
                   CONTENTS, READONLY, DEBUGGING, OCTETS
- 22 .debug_line_str 0000004a  00000000  00000000  0004ac54  2**0
+ 22 .debug_line_str 0000004a  00000000  00000000  0004ac58  2**0
                   CONTENTS, READONLY, DEBUGGING, OCTETS
 
 Disassembly of section .text:
@@ -712,7 +712,7 @@ __STATIC_INLINE void LL_APB1_GRP2_EnableClock(uint32_t Periphs)
  8000496:	3c01      	subs	r4, #1
  8000498:	2c00      	cmp	r4, #0
  800049a:	dbf3      	blt.n	8000484 <main+0x34>
-	  if (pattern & (1UL<<i)){
+	  if (sos_pattern & (1UL<<i)){
  800049c:	4b05      	ldr	r3, [pc, #20]	@ (80004b4 <main+0x64>)
  800049e:	40e3      	lsrs	r3, r4
  80004a0:	07db      	lsls	r3, r3, #31

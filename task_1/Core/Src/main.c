@@ -66,8 +66,8 @@ int main(void)
 {
 
   /* USER CODE BEGIN 1 */
-	// uint8_t array[32] = {1,0,1,0,1,0,0,1,1,1,0,1,1,1,0,1,1,1,0,0,1,0,1,0,1};
-	uint32_t pattern = 0b1010100111011101110010101;
+	// uint8_t sos_array[32] = {1,0,1,0,1,0,0,1,1,1,0,1,1,1,0,1,1,1,0,0,1,0,1,0,1};
+	uint32_t sos_pattern = 0b1010100111011101110010101;
 
   /* USER CODE END 1 */
 
@@ -107,7 +107,7 @@ int main(void)
 
 	  /*2
 	  for (int i = 0; i<32; i++){
-	  if (array[i]==1){
+	  if (sos_array[i]==1){
 		  LL_GPIO_SetOutputPin(LD2_GPIO_Port, LD2_Pin);
 	  }
 	  else
@@ -120,7 +120,7 @@ int main(void)
 
 	  ///*3
 	  for (int i = 31; i>=0; i--){
-	  if (pattern & (1UL<<i)){
+	  if (sos_pattern & (1UL<<i)){
 		  LL_GPIO_SetOutputPin(LD2_GPIO_Port, LD2_Pin);
 	  }
 	  else
