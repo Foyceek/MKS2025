@@ -27,11 +27,11 @@ Idx Name          Size      VMA       LMA       File off  Algn
                   ALLOC
  11 .ARM.attributes 00000028  00000000  00000000  00002004  2**0
                   CONTENTS, READONLY
- 12 .debug_info   00003937  00000000  00000000  0000202c  2**0
+ 12 .debug_info   00003936  00000000  00000000  0000202c  2**0
                   CONTENTS, READONLY, DEBUGGING, OCTETS
- 13 .debug_abbrev 000011d8  00000000  00000000  00005963  2**0
+ 13 .debug_abbrev 000011d8  00000000  00000000  00005962  2**0
                   CONTENTS, READONLY, DEBUGGING, OCTETS
- 14 .debug_loclists 0000112f  00000000  00000000  00006b3b  2**0
+ 14 .debug_loclists 0000112f  00000000  00000000  00006b3a  2**0
                   CONTENTS, READONLY, DEBUGGING, OCTETS
  15 .debug_aranges 00000238  00000000  00000000  00007c70  2**3
                   CONTENTS, READONLY, DEBUGGING, OCTETS
@@ -726,7 +726,7 @@ __STATIC_INLINE void LL_APB1_GRP2_EnableClock(uint32_t Periphs)
  80004ac:	e7f0      	b.n	8000490 <main+0x40>
  80004ae:	46c0      	nop			@ (mov r8, r8)
  80004b0:	40021000 	.word	0x40021000
- 80004b4:	a9ddca80 	.word	0xa9ddca80
+ 80004b4:	0153bb95 	.word	0x0153bb95
 
 080004b8 <NMI_Handler>:
 {
