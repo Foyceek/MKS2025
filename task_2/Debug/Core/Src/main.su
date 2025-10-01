@@ -24,10 +24,10 @@
 ../Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_gpio.h:838:22:LL_GPIO_SetOutputPin	16	static
 ../Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_gpio.h:867:22:LL_GPIO_ResetOutputPin	16	static
 ../Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_ll_gpio.h:896:22:LL_GPIO_TogglePin	24	static
-../Core/Src/main.c:61:6:blink	8	static
-../Core/Src/main.c:70:6:button	16	static
-../Core/Src/main.c:104:5:main	8	static
-../Core/Src/main.c:153:6:SystemClock_Config	8	static
-../Core/Src/main.c:193:13:MX_USART2_UART_Init	72	static
-../Core/Src/main.c:253:13:MX_GPIO_Init	48	static
-../Core/Src/main.c:341:6:Error_Handler	8	static,ignoring_inline_asm
+../Core/Src/main.c:62:6:blink	8	static
+../Core/Src/main.c:71:6:button	16	static
+../Core/Src/main.c:111:5:main	8	static
+../Core/Src/main.c:161:6:SystemClock_Config	8	static
+../Core/Src/main.c:201:13:MX_USART2_UART_Init	72	static
+../Core/Src/main.c:261:13:MX_GPIO_Init	48	static
+../Core/Src/main.c:349:6:Error_Handler	8	static,ignoring_inline_asm
