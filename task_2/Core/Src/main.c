@@ -34,7 +34,8 @@
 #define LED_TIME_BLINK 300
 #define LED_TIME_SHORT 100
 #define LED_TIME_LONG 1000
-#define BUTTON_TIME_SAMPLE 40
+#define BUTTON_SAMPLE_TIME_40ms 40
+#define BUTTON_SAMPLE_TIME_5ms 5
 /* USER CODE END PD */
 
 /* Private macro -------------------------------------------------------------*/
@@ -68,6 +69,7 @@ void blink(void)
 	}
 }
 
+/*
 void button(void)
 {
 	static uint32_t old_s2;
@@ -76,7 +78,7 @@ void button(void)
 	static uint32_t last_sample_time = 0;
 
 	// Check if 40 ms have passed since the last sample
-	if (Tick - last_sample_time >= 40) {
+	if (Tick - last_sample_time >= BUTTON_SAMPLE_TIME_40ms) {
 		last_sample_time = Tick;  // update the last sample timestamp
 
 		uint32_t new_s2 = LL_GPIO_IsInputPinSet(S2_GPIO_Port, S2_Pin);
@@ -99,8 +101,51 @@ void button(void)
 		LL_GPIO_ResetOutputPin(LED2_GPIO_Port, LED2_Pin);
 	}
 }
+ */
+
+void button(void)
+{
+
+	static uint32_t off_time;
+	static uint32_t last_sample_time_s2 = 0;
+	static uint32_t last_sample_time_s1 = 0;
 
 
+	if (Tick - last_sample_time_s2 >= BUTTON_SAMPLE_TIME_40ms) {
+		static uint32_t old_s2;
+		last_sample_time_s2 = Tick;
+
+		uint32_t new_s2 = LL_GPIO_IsInputPinSet(S2_GPIO_Port, S2_Pin);
+		if (old_s2 && !new_s2) { // falling edge
+			off_time = Tick + LED_TIME_SHORT;
+			LL_GPIO_SetOutputPin(LED2_GPIO_Port, LED2_Pin);
+		}
+		old_s2 = new_s2;
+	}
+
+	if (Tick - last_sample_time_s1 >= BUTTON_SAMPLE_TIME_5ms) {
+		static uint16_t debounce = 0xFFFF;
+
+		last_sample_time_s1 = Tick;
+
+		uint32_t new_s1 = LL_GPIO_IsInputPinSet(S1_GPIO_Port, S1_Pin);
+
+		debounce = debounce << 1;
+
+		if (new_s1) {
+			debounce |= 0x0001;
+		}
+
+		if (debounce == 0x7FFF) {
+			off_time = Tick + LED_TIME_LONG;
+			LL_GPIO_SetOutputPin(LED2_GPIO_Port, LED2_Pin);
+		}
+	}
+
+	if (Tick > off_time) {
+		LL_GPIO_ResetOutputPin(LED2_GPIO_Port, LED2_Pin);
+	}
+}
 
 /* USER CODE END 0 */
 
