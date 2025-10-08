@@ -8,7 +8,7 @@
 #ifndef INC_SCT_H_
 #define INC_SCT_H_
 
-#include "main.h"
+
 #include <stdint.h>
 
 void sct_init(void);

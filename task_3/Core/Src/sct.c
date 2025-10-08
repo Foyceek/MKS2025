@@ -5,6 +5,7 @@
  *      Author: 246827
  */
 
+#include "main.h"
 #include "sct.h"
 
 static const uint32_t reg_values[3][10] = {
