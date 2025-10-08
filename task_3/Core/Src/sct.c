@@ -77,11 +77,10 @@ void sct_value(uint16_t value)
 {
 	uint32_t reg = 0;
 
-	// Hundreds
 	reg |= reg_values[0][value / 100 % 10];
-	// Tens
+
 	reg |= reg_values[1][value / 10 % 10];
-	// Ones
+
 	reg |= reg_values[2][value / 1 % 10];
 
 	sct_led(reg);
